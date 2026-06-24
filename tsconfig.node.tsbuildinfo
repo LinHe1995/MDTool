@@ -1,0 +1,1 @@
+{"root":["./electron/main.ts","./electron/preload.ts","./electron/ipc/handlers.ts","./electron/services/annotationservice.ts","./electron/services/configservice.ts","./electron/services/fileservice.ts","./vite.config.ts","./shared/types.ts"],"version":"5.9.3"}

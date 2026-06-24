@@ -1,0 +1,70 @@
+{
+  "name": "mdtool",
+  "version": "0.1.0",
+  "description": "本地 Markdown 阅读器 — 高亮、笔记、书签",
+  "main": "dist-electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "package": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.mdtool.app",
+    "productName": "MDTool",
+    "forceCodeSigning": false,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.exe"
+    }
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "katex": "^0.17.0",
+    "mermaid": "^11.15.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^9.0.3",
+    "rehype-highlight": "^7.0.2",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "uuid": "^11.1.0",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  }
+}
